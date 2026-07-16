@@ -1,0 +1,14 @@
+<RCC>
+    <qresource prefix="/">
+        <file>assets/CarRender.png</file>
+        <file>assets/carRender2.0.jpg</file>
+        <file>assets/car_front_icon.png</file>
+        <file>assets/lockIcon.png</file>
+        <file>assets/unlockIcon.png</file>
+        <file>assets/userIcon.png</file>
+        <file>assets/searchIcon.png</file>
+        <file>assets/volume1.png</file>
+        <file>assets/volume2.png</file>
+        <file>assets/volumemutted.png</file>
+    </qresource>
+</RCC>
