@@ -1,12 +1,19 @@
 <RCC>
     <qresource prefix="/">
+        <file>assets/arcadeIcon.jpg</file>
+        <file>assets/cameraIcon.png</file>
+        <file>assets/car_front_icon.png</file>
         <file>assets/CarRender.png</file>
         <file>assets/carRender2.0.jpg</file>
-        <file>assets/car_front_icon.png</file>
+        <file>assets/heatedseats.png</file>
         <file>assets/lockIcon.png</file>
+        <file>assets/MapIcon.png</file>
+        <file>assets/MultimediaIcon.png</file>
+        <file>assets/phoneIcon.png</file>
+        <file>assets/searchIcon.png</file>
+        <file>assets/spotifyIcon.png</file>
         <file>assets/unlockIcon.png</file>
         <file>assets/userIcon.png</file>
-        <file>assets/searchIcon.png</file>
         <file>assets/volume1.png</file>
         <file>assets/volume2.png</file>
         <file>assets/volumemutted.png</file>

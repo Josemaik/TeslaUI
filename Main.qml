@@ -1,7 +1,6 @@
-import QtQuick
-import "ui/BottomBar"
-import "ui/RightScreen"
-import "ui/LeftScreen"
+import QtQuick 2.15
+import QtQuick.Window 2.15
+import "ui/Views"
 
 Window {
     width: 1280

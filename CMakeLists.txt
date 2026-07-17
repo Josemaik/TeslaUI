@@ -14,25 +14,50 @@ qt_add_executable(appTeslaUI
 
 qt_add_qml_module(appTeslaUI
     URI TeslaUI
+
     QML_FILES
         Main.qml
-        QML_FILES ui/BottomBar/BottomBar.qml
-        QML_FILES ui/RightScreen/RightScreen.qml
-        QML_FILES ui/LeftScreen/LeftScreen.qml
-        QML_FILES ui/RightScreen/NavigationSearchBox.qml
-    RESOURCES Resource.qrc
-    SOURCES Controllers/system.h Controllers/system.cpp
-    QML_FILES ui/RightScreen/NavigationSearchBox.qml
-    SOURCES Controllers/hvachandler.h Controllers/hvachandler.cpp
-    QML_FILES ui/BottomBar/HVACComponent.qml
-    SOURCES Controllers/audiocontroller.h Controllers/audiocontroller.cpp
-    QML_FILES ui/BottomBar/VolumeControlComponent.qml
+        ui/Views/BottomBar.qml
+        ui/Views/RightScreen.qml
+        ui/Views/LeftScreen.qml
+        ui/Components/NavigationSearchBox.qml
+        ui/Components/HVACComponent.qml
+        ui/Components/VolumeControlComponent.qml
+        ui/Components/ApptabComponent.qml
+
+    SOURCES
+        Controllers/system.h
+        Controllers/system.cpp
+        Controllers/hvachandler.h
+        Controllers/hvachandler.cpp
+        Controllers/audiocontroller.h
+        Controllers/audiocontroller.cpp
+        Controllers/appcontroller.h
+        Controllers/appcontroller.cpp
+)
+qt_add_resources(appTeslaUI Resource
+    PREFIX "/"
+    BASE Resources
+    FILES
+        Resources/assets/arcadeIcon.jpg
+        Resources/assets/cameraIcon.png
+        Resources/assets/car_front_icon.png
+        Resources/assets/carRender2.0.jpg
+        Resources/assets/heatedseats.png
+        Resources/assets/lockIcon.png
+        Resources/assets/MapIcon.png
+        Resources/assets/MultimediaIcon.png
+        Resources/assets/phoneIcon.png
+        Resources/assets/searchIcon.png
+        Resources/assets/spotifyIcon.png
+        Resources/assets/unlockIcon.png
+        Resources/assets/userIcon.png
+        Resources/assets/volume1.png
+        Resources/assets/volume2.png
+        Resources/assets/volumemutted.png
 )
 
-qt_add_resources(appTeslaUI "Resource"
-    PREFIX "/"
-    FILES assets/
-)
+
 
 # Qt for iOS sets MACOSX_BUNDLE_GUI_IDENTIFIER automatically since Qt 6.1.
 # If you are developing for iOS or macOS you should consider setting an

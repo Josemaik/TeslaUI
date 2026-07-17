@@ -133,7 +133,7 @@ Rectangle {
 
         width: parent.width / 40
         fillMode: Image.PreserveAspectFit
-        source: "qrc:/assets/userIcon.png"
+        source: "/assets/userIcon.png"
     }
 
     Text {
