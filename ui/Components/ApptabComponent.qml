@@ -58,6 +58,4 @@ Rectangle {
         anchors.fill: parent
         onClicked: appTab.clicked()
     }
-
-    Component.onCompleted: console.log("Created", icon)
 }

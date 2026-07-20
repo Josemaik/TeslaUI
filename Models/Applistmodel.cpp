@@ -1,5 +1,4 @@
 #include "Applistmodel.h"
-#include <QDebug>
 
 AppListModel::AppListModel(QObject *parent)
     : QAbstractListModel(parent)
@@ -48,8 +47,6 @@ void AppListModel::initializeApps()
                 "../Apps/ArcadeView.qml"
             }
         };
-
-    qDebug() << "Apps:" << m_apps.size();
 }
 
 int AppListModel::rowCount(const QModelIndex &parent) const
@@ -88,12 +85,10 @@ QVariant AppListModel::data(const QModelIndex &index, int role) const
 
 QString AppListModel::qmlPath(AppTypes::App app) const
 {
-    qDebug() << app;
     for (const AppInfo &info : m_apps)
     {
         if (info.type == app)
         {
-            qDebug() << info.qmlPath;
             return info.qmlPath;
         }
     }

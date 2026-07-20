@@ -8,6 +8,8 @@ System::System(QObject *parent)
     , m_outdoorTemperature(64)
     , m_userName("Monty")
     , m_currentTime("12:34am")
+    , m_frunkLocked(true)
+    , m_trunkLocked(true)
 {
     m_currentTimeTimer = new QTimer(this);
     m_currentTimeTimer->setInterval(500);
@@ -21,6 +23,12 @@ System::System(QObject *parent)
 bool System::carLocked() const
 {
     return m_carLocked;
+}
+
+void System::togglecarLocked()
+{
+    m_carLocked = !m_carLocked;
+    emit carLockedChanged();
 }
 
 void System::setcarLocked(bool newCarLocked)
@@ -79,3 +87,29 @@ void System::currentTimeTimerTimeOut()
 
     m_currentTimeTimer->start();
 };
+
+bool System::trunkLocked() const
+{
+    return m_trunkLocked;
+}
+
+void System::setTrunkLocked(bool newTrunkLocked)
+{
+    if (m_trunkLocked == newTrunkLocked)
+        return;
+    m_trunkLocked = newTrunkLocked;
+    emit trunkLockedChanged();
+}
+
+bool System::frunkLocked() const
+{
+    return m_frunkLocked;
+}
+
+void System::setFrunkLocked(bool newFrunkLocked)
+{
+    if (m_frunkLocked == newFrunkLocked)
+        return;
+    m_frunkLocked = newFrunkLocked;
+    emit frunkLockedChanged();
+}

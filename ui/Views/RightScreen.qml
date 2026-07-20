@@ -63,7 +63,8 @@ Rectangle {
         }
 
         Component.onCompleted: {
-            loaderA.source = appController.currentAppQml
+            if(appController.currentAppQml)
+                loaderA.source = appController.currentAppQml
         }
     }
 
@@ -75,15 +76,15 @@ Rectangle {
            top: parent.top
            margins: 20
         }
-
-        width: parent.width / 40
+        width: 40
+        height: 30 * 48 / 65
         fillMode: Image.PreserveAspectFit
         //source: "qrc:/assets/lockIcon.png"
         source: (systemHandler.carLocked ? "qrc:/assets/lockIcon.png" : "qrc:/assets/unlockIcon.png")
-        MouseArea {
+        /*MouseArea {
            anchors.fill: parent
            onClicked: systemHandler.setcarLocked(!systemHandler.carLocked)
-        }
+        }*/
     }
 
     Text {
