@@ -24,7 +24,8 @@ This project is a faithful recreation of the Tesla Model S user interface using 
 
 ## Screenshots
 
-![Tesla UI Demo](docs/tesla-ui-demo.png)
+<img width="1281" height="749" alt="Captura de pantalla 2026-07-20 205920" src="https://github.com/user-attachments/assets/e191a4da-1558-486c-8622-cbe99c565649" />
+
 
 The interface showcases a modern, minimalist design with intuitive navigation and real-time data displays.
 
