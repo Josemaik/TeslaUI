@@ -1,5 +1,5 @@
 import QtQuick 2.15
-import TeslaUI 1.0
+import TeslaUI
 
 Rectangle {
     id: bottomBar
@@ -37,89 +37,24 @@ Rectangle {
         hvacController: driverHVAC
     }
 
-    Image {
-        id: driverheatedseatsControl
-        anchors{
-            verticalCenter: parent.verticalCenter
-            left: driverHVACControl.right
-            leftMargin: 50
-        }
-        height: parent.height * 0.5
-        fillMode: Image.PreserveAspectFit
-        source: "qrc:/assets/heatedseats.png"
-    }
+    Row{
+        id: appsbar
+        anchors.centerIn: parent
+        spacing: 10
+        Repeater {
+            model: appListModel
 
-    ApptabComponent {
-        id: spotifyapp
-        anchors {
-            left: driverheatedseatsControl.right
-        }
-        icon: "qrc:/assets/spotifyIcon.png"
-        selected: appController.currentApp === AppController.Spotify
-        onClicked: appController.selectApp(AppController.Spotify)
-    }
+            delegate: ApptabComponent {
 
-    ApptabComponent {
-        id: phoneapp
-        anchors {
-            left: spotifyapp.right
-        }
-        icon: "qrc:/assets/phoneIcon.png"
-        selected: appController.currentApp === AppController.Phone
-        onClicked: appController.selectApp(AppController.Phone)
-    }
+            icon: model.icon
 
-    ApptabComponent {
-        id: mapapp
-        anchors {
-            left: phoneapp.right
-        }
-        icon: "qrc:/assets/MapIcon.png"
-        selected: appController.currentApp === AppController.Map
-        onClicked: appController.selectApp(AppController.Map)
-    }
+            selected:
+                appController.currentApp === model.type
 
-    ApptabComponent {
-        id: theaterapp
-        anchors {
-            left: mapapp.right
+            onClicked:
+                appController.selectApp(model.type)
+            }
         }
-        icon: "qrc:/assets/MultimediaIcon.png"
-        selected: appController.currentApp === AppController.Theater
-        onClicked: appController.selectApp(AppController.Theater)
-    }
-
-    ApptabComponent {
-        id: cameraapp
-        anchors {
-            left: theaterapp.right
-        }
-        icon: "qrc:/assets/cameraIcon.png"
-        selected: appController.currentApp === AppController.Camera
-        onClicked: appController.selectApp(AppController.Camera)
-    }
-
-    ApptabComponent {
-        id: arcadeapp
-        anchors {
-            left: cameraapp.right
-        }
-        icon: "qrc:/assets/arcadeIcon.jpg"
-        selected: appController.currentApp === AppController.Arcade
-        onClicked: appController.selectApp(AppController.Arcade)
-    }
-
-    Image {
-        id: passengerheatedseatsControl
-        anchors{
-            verticalCenter: parent.verticalCenter
-            right: passengerHVACControl.left
-            rightMargin: 50
-        }
-        height: parent.height * 0.5
-        fillMode: Image.PreserveAspectFit
-        mirror: true
-        source: "qrc:/assets/heatedseats.png"
     }
 
     HVACComponent {

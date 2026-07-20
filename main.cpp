@@ -8,10 +8,13 @@
 #include <Controllers/audiocontroller.h>
 #include <Controllers/appcontroller.h>
 
+#include <Models/Applistmodel.h>
+
 int main(int argc, char *argv[])
 {
     QGuiApplication app(argc, argv);
 
+    //handlers
     System systemHandler;
 
     HVACHandler driverHVACHandler;
@@ -19,6 +22,9 @@ int main(int argc, char *argv[])
 
     AudioController audioController;
     AppController appController;
+
+    //Models
+    AppListModel appListModel;
 
     QQmlApplicationEngine engine;
     QObject::connect(
@@ -39,6 +45,7 @@ int main(int argc, char *argv[])
     context->setContextProperty( "passengerHVAC", &passengerHVACHandler);
     context->setContextProperty( "audioController", &audioController);
     context->setContextProperty( "appController", &appController);
+    context->setContextProperty( "appListModel", &appListModel);
 
     engine.loadFromModule("TeslaUI", "Main");
 

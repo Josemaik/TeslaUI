@@ -1,6 +1,5 @@
 import QtQuick 2.15
-import QtLocation
-import QtPositioning
+import TeslaUI
 
 
 Rectangle {
@@ -13,68 +12,62 @@ Rectangle {
     width: parent.width * 2/3
     color: "orange"
 
-    Plugin {
-           id: mapPlugin
-           name: "osm"
-
-           /*PluginParameter {
-               name: "osm.mapping.custom.host"
-               value: "https://a.basemaps.cartocdn.com/rastertiles/voyager/"
-           }*/
+    MapView {
+        id: mapDisplay
+        anchors.fill: parent
     }
 
-    Map {
-       id: map
-       anchors.fill: parent
-       plugin: mapPlugin
-       center: QtPositioning.coordinate(59.91, 10.75) // Oslo
-       zoomLevel: 14
-       property geoCoordinate startCentroid
+    Item {
+        id: appHost
+        anchors {
+            top: lockIcon.bottom
+            topMargin: 10
+            left: parent.left
+            right: parent.right
+            bottom: parent.bottom
+        }
 
-       PinchHandler {
-           id: pinch
-           target: null
-           onActiveChanged: if (active) {
-               map.startCentroid = map.toCoordinate(pinch.centroid.position, false)
-           }
-           onScaleChanged: (delta) => {
-               map.zoomLevel += Math.log2(delta)
-               map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
-           }
-           onRotationChanged: (delta) => {
-               map.bearing -= delta
-               map.alignCoordinateToPoint(map.startCentroid, pinch.centroid.position)
-           }
-           grabPermissions: PointerHandler.TakeOverForbidden
-       }
-       WheelHandler {
-           id: wheel
-           // workaround for QTBUG-87646 / QTBUG-112394 / QTBUG-112432:
-           // Magic Mouse pretends to be a trackpad but doesn't work with PinchHandler
-           // and we don't yet distinguish mice and trackpads on Wayland either
-           acceptedDevices: Qt.platform.pluginName === "cocoa" || Qt.platform.pluginName === "wayland"
-                            ? PointerDevice.Mouse | PointerDevice.TouchPad
-                            : PointerDevice.Mouse
-           rotationScale: 1/120
-           property: "zoomLevel"
-       }
-       DragHandler {
-           id: drag
-           target: null
-           onTranslationChanged: (delta) => map.pan(-delta.x, -delta.y)
-       }
-       Shortcut {
-           enabled: map.zoomLevel < map.maximumZoomLevel
-           sequence: StandardKey.ZoomIn
-           onActivated: map.zoomLevel = Math.round(map.zoomLevel + 1)
-       }
-       Shortcut {
-           enabled: map.zoomLevel > map.minimumZoomLevel
-           sequence: StandardKey.ZoomOut
-           onActivated: map.zoomLevel = Math.round(map.zoomLevel - 1)
-       }
+        property bool loaderAOnTop: true
+
+        Loader {
+            id: loaderA
+            anchors.fill: parent
+            asynchronous: true
+            opacity: appHost.loaderAOnTop ? 1 : 0
+            Behavior on opacity {
+                NumberAnimation { duration: 200 }
+            }
+        }
+
+        Loader {
+            id: loaderB
+            anchors.fill: parent
+            asynchronous: true
+            opacity: appHost.loaderAOnTop ? 0 : 1
+            Behavior on opacity {
+                NumberAnimation { duration: 200 }
+            }
+        }
+
+        function switchTo(qmlSource) {
+            var incoming = loaderAOnTop ? loaderB : loaderA
+            incoming.source = qmlSource
+            loaderAOnTop = !loaderAOnTop
+        }
+
+        Connections {
+            target: appController
+            function onCurrentAppChanged() {
+                appHost.switchTo(appListModel.qmlPath(appController.currentApp))
+            }
+        }
+
+        Component.onCompleted: {
+            loaderA.source = appController.currentAppQml
+        }
     }
 
+    //Superior Bar
     Image {
         id: lockIcon
         anchors {
@@ -150,20 +143,6 @@ Rectangle {
 
         text: systemHandler.userName
     }
-
-    NavigationSearchBox {
-        id: searchBoxDisplay
-
-        width: parent.width * 1/3
-        height: parent.height * 1/12
-
-        anchors {
-           left: lockIcon.left
-           top: lockIcon.bottom
-           topMargin: 15
-        }
-    }
-
 }
 
 

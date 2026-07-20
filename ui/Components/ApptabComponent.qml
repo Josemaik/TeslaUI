@@ -9,7 +9,7 @@ Rectangle {
     signal clicked()
 
     width: 60
-    height: parent.height
+    height: 60
     color: "transparent"
 
     anchors{
@@ -23,6 +23,14 @@ Rectangle {
         height: 36
         fillMode: Image.PreserveAspectFit
         source: icon
+
+        scale: selected ? 1.15 : 1.0
+
+        Behavior on scale {
+            NumberAnimation {
+                duration: 100
+            }
+        }
     }
 
     Rectangle {
@@ -50,4 +58,6 @@ Rectangle {
         anchors.fill: parent
         onClicked: appTab.clicked()
     }
+
+    Component.onCompleted: console.log("Created", icon)
 }

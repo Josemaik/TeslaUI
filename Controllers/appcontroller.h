@@ -2,33 +2,26 @@
 #define APPCONTROLLER_H
 
 #include <QObject>
+#include "../Models/AppTypes.h"
 
 class AppController : public QObject
 {
     Q_OBJECT
-    Q_PROPERTY(App currentApp READ currentApp NOTIFY currentAppChanged FINAL)
+    Q_PROPERTY(AppTypes::App currentApp READ currentApp NOTIFY currentAppChanged FINAL)
 public:
-    enum App {
-        Map,
-        Spotify,
-        Phone,
-        Camera,
-        Theater,
-        Arcade
-    };
-    Q_ENUM(App)
+
 
     explicit AppController(QObject *parent = nullptr);
 
-    App currentApp() const;
+    AppTypes::App currentApp() const;
 
-    Q_INVOKABLE void selectApp(App app);
+    Q_INVOKABLE void selectApp(AppTypes::App app);
 
 signals:
 
     void currentAppChanged();
 private:
-    App m_currentApp;
+    AppTypes::App m_currentApp;
 };
 
 #endif // APPCONTROLLER_H

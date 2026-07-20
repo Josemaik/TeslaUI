@@ -3,12 +3,12 @@
 
 AppController::AppController(QObject *parent)
     : QObject{parent}
-    ,m_currentApp(Map)
+    ,m_currentApp(AppTypes::App::Map)
 {
 
 }
 
-void AppController::selectApp(App app)
+void AppController::selectApp(AppTypes::App app)
 {
     if(m_currentApp == app)
         return;
@@ -17,7 +17,8 @@ void AppController::selectApp(App app)
     emit currentAppChanged();
 }
 
-AppController::App AppController::currentApp() const
+
+AppTypes::App AppController::currentApp() const
 {
     return m_currentApp;
 }
