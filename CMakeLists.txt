@@ -31,6 +31,9 @@ qt_add_qml_module(appTeslaUI
         ui/Apps/TheaterView.qml
         ui/Apps/ArcadeView.qml
         ui/Components/VehicleActionButton.qml
+        ui/Pages/LeftScreen/MusicPage.qml
+        ui/Pages/LeftScreen/TripInfoPage.qml
+        ui/Pages/LeftScreen/TirePressurePage.qml
 
     SOURCES
         Controllers/system.h
@@ -44,13 +47,14 @@ qt_add_qml_module(appTeslaUI
         Models/AppInfo.h
         Models/Applistmodel.h Models/Applistmodel.cpp
         Models/AppTypes.h
-        RESOURCES Resources/assets/arcadeIcon.jpg Resources/assets/cameraIcon.png Resources/assets/car_front_icon.png Resources/assets/CarRender.png Resources/assets/carRender2.0.jpg Resources/assets/heatedseats.png Resources/assets/lockIcon.png Resources/assets/MapIcon.png Resources/assets/MultimediaIcon.png Resources/assets/phoneIcon.png Resources/assets/searchIcon.png Resources/assets/spotifyIcon.png Resources/assets/unlockIcon.png Resources/assets/userIcon.png Resources/assets/volume1.png Resources/assets/volume2.png Resources/assets/volumemutted.png
+
 )
 qt_add_resources(appTeslaUI Resource
     PREFIX "/"
     BASE Resources
     FILES
-        Resources/assets/
+        Resources/assets/arcadeIcon.jpg Resources/assets/automatic_lights.png Resources/assets/beltindicator.png Resources/assets/cameraIcon.png Resources/assets/car_front_icon.png Resources/assets/CarRender.png Resources/assets/carRender2.0.jpg Resources/assets/carrenderallopen.jpg Resources/assets/carrenderfrunkopen.jpg Resources/assets/carrendertrunkopen.jpg Resources/assets/cover_placeholder.jpg Resources/assets/heatedseats.png Resources/assets/lockIcon.png Resources/assets/MapIcon.png Resources/assets/MultimediaIcon.png Resources/assets/parkindicator.png Resources/assets/phoneIcon.png Resources/assets/searchIcon.png Resources/assets/spotifyIcon.png Resources/assets/topviewcar.png Resources/assets/unlockIcon.png Resources/assets/userIcon.png Resources/assets/velocity_warning_symbol.png Resources/assets/volume1.png Resources/assets/volume2.png Resources/assets/volumemutted.png
+        Resources/assets/reproduce_music_icon.png Resources/assets/stop_music_icon.png Resources/assets/bluetoothIcon.png
 )
 
 
