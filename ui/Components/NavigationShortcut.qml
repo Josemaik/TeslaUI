@@ -6,7 +6,6 @@ Rectangle {
     property string text
     property string icon
 
-    radius: 5
     color: "#fafafa"
 
     Row {
