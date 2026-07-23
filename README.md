@@ -28,7 +28,7 @@ This project is a faithful recreation of the Tesla Model S user interface using 
 ## Screenshots
 
 ### Main Dashboard with Navigation
-<img width="1280" height="752" alt="Captura de pantalla 2026-07-23 121648" src="https://github.com/user-attachments/assets/eeaed87e-e881-4037-b3d8-801cfbdbfb89" />
+<img width="1275" height="749" alt="Captura de pantalla 2026-07-23 122639" src="https://github.com/user-attachments/assets/fda5acbd-3d44-404f-a060-fbd490e6503b" />
 
 ### Navigation with Route Planning
 <img width="1280" height="741" alt="Captura de pantalla 2026-07-23 121754" src="https://github.com/user-attachments/assets/d7dc127c-2aa4-4793-a2c0-10e4090bd550" />
