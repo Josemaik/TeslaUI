@@ -4,16 +4,18 @@ Tesla Model S UI Recreation with Qt, QML and C++
 
 ## Overview
 
-This project is a faithful recreation of the Tesla Model S user interface using Qt, QML, and C++. It demonstrates modern UI design patterns, real-time data visualization, and interactive components inspired by Tesla's infotainment system.
+This project is a faithful recreation of the Tesla Model S user interface using Qt, QML, and C++. It demonstrates modern UI design patterns, real-time data visualization, and interactive components.
 
 ## Features
 
 - **Vehicle Controls**: Open/close trunk, lock/unlock, and other vehicle functions
-- **Navigation Map**: Integrated map view with real-time location tracking
+- **Navigation Map**: Integrated map view with real-time location tracking and route planning
 - **Status Dashboard**: Display of battery level, speed, temperature, and vehicle status
 - **User Profile**: Quick access to driver information and preferences
-- **Media Controls**: Spotify and other media playback controls
+- **Media Controls**: Spotify and other media playback controls with currently playing information
 - **Climate Control**: Temperature and climate settings
+- **Tire Pressure Monitoring**: Real-time tire pressure information for all wheels
+- **Route Navigation**: Multiple route options with distance and time estimates
 - **Responsive Design**: Adaptive UI that works across different screen resolutions
 
 ## Technology Stack
@@ -21,13 +23,30 @@ This project is a faithful recreation of the Tesla Model S user interface using 
 - **Qt Framework**: For cross-platform UI development
 - **QML**: For declarative UI design
 - **C++**: For business logic and performance-critical components
+- **CMake**: Build system for cross-platform compilation
 
 ## Screenshots
 
-<img width="1281" height="749" alt="Captura de pantalla 2026-07-20 205920" src="https://github.com/user-attachments/assets/e191a4da-1558-486c-8622-cbe99c565649" />
+### Main Dashboard with Navigation
+<img width="1281" height="749" alt="Tesla UI - Main Dashboard" src="https://github.com/user-attachments/assets/e191a4da-1558-486c-8622-cbe99c565649" />
 
+### Navigation with Route Planning
+<img width="1281" height="749" alt="Tesla UI - Route Navigation" src="https://github.com/Josemaik/TeslaUI/assets/image-2.png" />
 
-The interface showcases a modern, minimalist design with intuitive navigation and real-time data displays.
+The interface showcases a modern, minimalist design with intuitive navigation and real-time data displays. Features include:
+- Interactive map with search functionality
+- Speed display and vehicle charging status
+- Multiple route options visualization
+- Real-time tire pressure monitoring
+- Music player integration with currently playing track information
+
+## Recent Updates
+
+- ✅ Enhanced map integration with search functionality
+- ✅ Route planning with multiple alternatives
+- ✅ Tire pressure monitoring system
+- ✅ Improved UI responsiveness
+- ✅ Better real-time data visualization
 
 ## Getting Started
 
