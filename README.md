@@ -28,10 +28,10 @@ This project is a faithful recreation of the Tesla Model S user interface using 
 ## Screenshots
 
 ### Main Dashboard with Navigation
-<img width="1281" height="749" alt="Tesla UI - Main Dashboard" src="https://github.com/user-attachments/assets/e191a4da-1558-486c-8622-cbe99c565649" />
+<img width="1280" height="752" alt="Captura de pantalla 2026-07-23 121648" src="https://github.com/user-attachments/assets/eeaed87e-e881-4037-b3d8-801cfbdbfb89" />
 
 ### Navigation with Route Planning
-<img width="1281" height="749" alt="Tesla UI - Route Navigation" src="https://github.com/Josemaik/TeslaUI/assets/image-2.png" />
+<img width="1280" height="741" alt="Captura de pantalla 2026-07-23 121754" src="https://github.com/user-attachments/assets/d7dc127c-2aa4-4793-a2c0-10e4090bd550" />
 
 The interface showcases a modern, minimalist design with intuitive navigation and real-time data displays. Features include:
 - Interactive map with search functionality
